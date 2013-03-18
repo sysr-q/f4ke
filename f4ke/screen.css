@@ -1,0 +1,70 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.edit-text textarea {
+    display: inline-block;
+    width: 300px !important;
+    height: 150px !important;
+}
+
+body {
+    background-color: #FFFFEE;
+}
+
+#header {
+    background-color: #abe3ff;
+    border-bottom: 1px dashed #FFFFFF;
+}
+
+#header.collapsed {
+    height: 15px;
+    overflow: hidden;
+}
+
+#header.collapsed .content {
+    display: none;
+}
+
+#header .come-back {
+    width: 100%;
+    font-size: 12px;
+    display: none;
+}
+
+#header.collapsed .come-back {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* f4ke 4chan wraparound */
+
+#f4ke {
+    padding: 10px;
+    padding-top: 30px;
+    width: 100%;
+    color: #800000;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 13px;
+}
+
+ul.sortable li:not(.op) {
+    margin-bottom: 4px;
+}
+
+/*
+## Forceful style hack
+Required to get rid of some sort of strange little gray
+box we get on either side of the OP post, which seems to be
+a side-effect of the border+background combo. Strange..
+*/
+ul.sortable .op {
+    background: none !important;
+    background-color: none !important;
+    border: none !important;
+    border-color: none !important;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="plausibility" />
+    <title>f4ke - "I'm calling bullshit on that, OP."</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="960.css">
+    <link rel="stylesheet" type="text/css" href="screen.css">
+    <link rel="stylesheet" type="text/css" href="4chan.css">
+    <style>
+        ul, li {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li.sortable-placeholder {
+            border: 1px dashed #CCC;
+            background: none;
+            /*padding: 40px;
+            height: ;*/
+        }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <div class="container_12 content">
+            <h1>I can tell by the pixels.</h1>
+            <p>
+                Why should we be limited to what really happened on 4chan for <i>teh epic lulz</i>?<br>
+                There are tools out there to create fake iPhone and Android conversations, why not 4chan?
+            </p>
+            <p>
+                You can rearrange the posts! Don't like where one is positioned? Drag it elsewhere.<br>
+                Click the little buttons to the right to create more posts, or change the editing mode.<br>
+                <b>You can click this header to collapse it.</b>
+            </p>
+            <p>
+                <b>Dev notes!</b><br>
+                This is unfinished as all hell. Don't even try and use it. Seriously.<br>
+                Only the OP is anywhere near editable, and not even all of that is.<br>
+                Don't use this.
+            </p>
+        </div>
+        <div class="come-back">
+            No wait, I want that back!
+        </div>
+    </section>
+    <section id="f4ke">
+        <!--<div class="container_12 content">
+            <div class="grid_12" id="f4ke">
+                This is where the 4chan bit would go.
+            </div>
+        </div>-->
+        <ul class="sortable posts">
+            <li class="disabled op">
+                <div class="postContainer opContainer">
+                <div class="post op">
+                    <div class="file">
+                        <div class="fileInfo">
+                            <span class="fileText">
+                                File: <a href="#" class="editable">XXXXXXXXXX.png</a>-(XXX KB, HxW, ImageName.png)
+                            </span><!-- .fileText -->
+                        </div><!-- .fileInfo -->
+                        <a class="fileThumb">
+                            <img style="height: 135px; width: 135px;" src="http://i.imgur.com/9OPnZNkb.jpg"/>
+                        </a>
+                    </div><!-- .file -->
+                    <div class="postInfo">
+                        <input type="checkbox" />
+                        <span class="subject editable">Daily Programming Thread</span>
+                        <span class="nameBlock">
+                            <span class="name editable">Anonymous</span>
+                            <span class="posteruid">
+                                (ID: XXXXXX)
+                            </span><!-- .posteruid -->
+                        </span><!-- .nameBlock -->
+                        <span class="dateTime editable">MM/DD/YY(Day)HH:MM:SS</span>
+                        <span class="postNum">
+                            <span>No.</span>
+                            <span class="editable">XXXXXXXX</span>
+                        </span><!-- .postNum -->
+                    </div><!-- .postInfo -->
+                    <blockquote class="postMessage editable_text"></blockquote>
+                </div><!-- .post -->
+                </div><!-- .postContainer .opContainer -->
+            </li>
+
+            <li>
+                <div class="postContainer">
+                <div class="sideArrows">&gt;&gt;</div>
+                <div class="post">
+                    <div class="postInfo">
+                        <input type="checkbox" value="delete" />
+                        <span class="subject">
+                            test
+                        </span><!-- .subject -->
+                        <span class="nameBlock">
+                            <span class="name">Anonymous</span>
+                            <span class="posteruid">
+                                (ID: XXXXXX)
+                            </span>
+                        </span><!-- .nameBlock -->
+                        <span class="dateTime">MM/DD/YY(Day)HH:MM:SS</span>
+                        <span class="postNum">
+                            <span>No.</span>
+                            <span>XXXXXXXXX</span>
+                        </span><!-- .postNum -->
+                    </div><!-- .postInfo -->
+                    <blockquote class="postMessage">
+                        THIS IS A TEST, YO.<br>
+                        <span class="quote">&gt;implying</span>
+                    </blockquote><!-- .postMessage -->
+                </div><!-- .post -->
+                </div><!-- .postContainer -->
+            </li>
+
+            <li>
+                <div class="postContainer">
+                <div class="sideArrows">&gt;&gt;</div>
+                <div class="post">
+                    <div class="postInfo">
+                        <input type="checkbox" value="delete" />
+                        <span class="subject">
+                            test
+                        </span><!-- .subject -->
+                        <span class="nameBlock">
+                            <span class="name">Anonymous</span>
+                            <span class="posteruid">
+                                (ID: XXXXXX)
+                            </span>
+                        </span><!-- .nameBlock -->
+                        <span class="dateTime">DD/MM/YY(Day)HH:MM:SS</span>
+                        <span class="postNum">
+                            <span>No.</span>
+                            <span>XXXXXXXXX</span>
+                        </span><!-- .postNum -->
+                    </div><!-- .postInfo -->
+                    <div class="file">
+                        <div class="fileInfo">
+                        </div><!-- .fileInfo -->
+                        <a class="fileThumb">
+                            <img style="height: 135px; width: 135px;" src="http://i.imgur.com/crsqI9lb.jpg">
+                        </a><!-- .fileThumb -->
+                    </div><!-- .file -->
+                    <blockquote class="postMessage">
+                        THIS IS A TEST, YO.<br>
+                        <span class="quote">&gt;implying</span>
+                    </blockquote><!-- .postMessage -->
+                </div><!-- .post -->
+                </div><!-- .postContainer -->
+            </li>
+        </ul>
+    </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="jquery.sortable.min.js"></script>
+    <script src="jquery.jeditable.mini.js"></script>
+    <script>
+        $(function () {
+            $('.sortable li:last-child').clone().appendTo($('.sortable'));
+            $('.sortable').sortable({
+                items: ':not(.disabled)',
+                forcePlaceholderSize: true
+            });
+
+            /**
+             * Replaces HTML with human readable values,
+             * making it easier for the user to edit.
+             */
+            function editable_before(value, settings) {
+                var lines = value.split('<br>'),
+                    retval = [];
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i];
+                    line = line.replace(/\<span class="quote"\>(?:&gt;|>)([^<]+)\<\/span\>/, ">$1");
+                    retval.push(line);
+                }
+                return $('<div />').html(retval.join("\n")).text();
+            }
+
+            /**
+             * Replaces human readable vals with
+             * required HTML.
+             * Mainly for green text quotes
+             */
+            function editable_ret(value, settings) {
+                var lines = value.split('\n'),
+                    retval = [];
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i];
+                    line = line.replace(/^\>(.+)/, '<span class="quote">&gt;$1</span>');
+                    retval.push(line);
+                }
+                return retval.join("<br>");
+            }
+
+
+            $('.editable').editable(editable_ret, {
+                tooltip: "Click to edit..."
+            });
+            $('.editable_text').editable(editable_ret, {
+                tooltip: "Click to edit...",
+                type: "textarea",
+                height: 'auto',
+                width: 'auto',
+                cssclass: "edit-text",
+                onblur: "submit",
+                data: editable_before,
+            });
+        });
+        $('#header').click(function () {
+            $(this).toggleClass('collapsed');
+        });
+    </script>
+</body>
+</html>
