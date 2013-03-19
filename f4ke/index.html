@@ -190,7 +190,11 @@
                     retval = [];
                 for (var i = 0; i < lines.length; i++) {
                     var line = lines[i];
-                    line = line.replace(/^\>(.+)/, '<span class="quote">&gt;$1</span>');
+                    if (settings.name == "editable_text") {
+                        // Since this is for text boxes, we're going to apply
+                        // blockquote replacement. Greentext, mostly.
+                        line = line.replace(/^\>(.+)/, '<span class="quote">&gt;$1</span>');
+                    }
                     retval.push(line);
                 }
                 return retval.join("<br>");
@@ -198,7 +202,11 @@
 
 
             $('.editable').editable(editable_ret, {
-                tooltip: "Click to edit..."
+                tooltip: "Click to edit...",
+                cssclass: "edit-text",
+                onblur: "submit",
+                data: editable_before,
+                name: "editable",
             });
             $('.editable_text').editable(editable_ret, {
                 tooltip: "Click to edit...",
@@ -208,6 +216,7 @@
                 cssclass: "edit-text",
                 onblur: "submit",
                 data: editable_before,
+                name: "editable_text",
             });
         });
         $('#header').click(function () {
