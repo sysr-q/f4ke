@@ -19,8 +19,6 @@
         li.sortable-placeholder {
             border: 1px dashed #CCC;
             background: none;
-            /*padding: 40px;
-            height: ;*/
         }
     </style>
 </head>
@@ -44,16 +42,13 @@
                 Don't use this.
             </p>
         </div>
-        <div class="come-back">
-            No wait, I want that back!
+        <div id="edit-buttons">
+            <b>EDITING:</b>
+            <button id="edit-enable" class="width-50">YES</button> &ndash;
+            <button id="edit-disable" class="width-50">NO</button>
         </div>
     </section>
     <section id="f4ke">
-        <!--<div class="container_12 content">
-            <div class="grid_12" id="f4ke">
-                This is where the 4chan bit would go.
-            </div>
-        </div>-->
         <ul class="sortable posts">
             <li class="disabled op">
                 <div class="postContainer opContainer">
@@ -83,7 +78,7 @@
                             <span class="editable">XXXXXXXX</span>
                         </span><!-- .postNum -->
                     </div><!-- .postInfo -->
-                    <blockquote class="postMessage editable_text"></blockquote>
+                    <blockquote class="postMessage editable editable_text"></blockquote>
                 </div><!-- .post -->
                 </div><!-- .postContainer .opContainer -->
             </li>
@@ -157,71 +152,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="jquery.sortable.min.js"></script>
     <script src="jquery.jeditable.mini.js"></script>
-    <script>
-        $(function () {
-            $('.sortable li:last-child').clone().appendTo($('.sortable'));
-            $('.sortable').sortable({
-                items: ':not(.disabled)',
-                forcePlaceholderSize: true
-            });
-
-            /**
-             * Replaces HTML with human readable values,
-             * making it easier for the user to edit.
-             */
-            function editable_before(value, settings) {
-                var lines = value.split('<br>'),
-                    retval = [];
-                for (var i = 0; i < lines.length; i++) {
-                    var line = lines[i];
-                    line = line.replace(/\<span class="quote"\>(?:&gt;|>)([^<]+)\<\/span\>/, ">$1");
-                    retval.push(line);
-                }
-                return $('<div />').html(retval.join("\n")).text();
-            }
-
-            /**
-             * Replaces human readable vals with
-             * required HTML.
-             * Mainly for green text quotes
-             */
-            function editable_ret(value, settings) {
-                var lines = value.split('\n'),
-                    retval = [];
-                for (var i = 0; i < lines.length; i++) {
-                    var line = lines[i];
-                    if (settings.name == "editable_text") {
-                        // Since this is for text boxes, we're going to apply
-                        // blockquote replacement. Greentext, mostly.
-                        line = line.replace(/^\>(.+)/, '<span class="quote">&gt;$1</span>');
-                    }
-                    retval.push(line);
-                }
-                return retval.join("<br>");
-            }
-
-
-            $('.editable').editable(editable_ret, {
-                tooltip: "Click to edit...",
-                cssclass: "edit-text",
-                onblur: "submit",
-                data: editable_before,
-                name: "editable",
-            });
-            $('.editable_text').editable(editable_ret, {
-                tooltip: "Click to edit...",
-                type: "textarea",
-                height: 'auto',
-                width: 'auto',
-                cssclass: "edit-text",
-                onblur: "submit",
-                data: editable_before,
-                name: "editable_text",
-            });
-        });
-        $('#header').click(function () {
-            $(this).toggleClass('collapsed');
-        });
-    </script>
+    <script src="f4ke.js"></script>
 </body>
 </html>

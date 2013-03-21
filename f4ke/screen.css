@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+blockquote.editable {
+    /**/
+    display: inline-block;
+    margin-left: 0px;
+    margin-bottom: 13px !important;
+    /**/
+}
+
+.editable.highlight {
+    background: #fe4902 !important;
+    color: #ffffff !important;
+}
+
+.edit-text {
+    display: inline;
+}
+
+.edit-text input {
+    display: inline;
+}
+
 .edit-text textarea {
     display: inline-block;
     width: 300px !important;
@@ -14,38 +35,37 @@ body {
     background-color: #FFFFEE;
 }
 
+.width-25 { width: 25px; }
+.width-50 { width: 50px; }
+
+#edit-buttons {
+    padding-top: 4px;
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
 #header {
+    position: relative;
+    top: 0px;
     background-color: #abe3ff;
     border-bottom: 1px dashed #FFFFFF;
 }
 
 #header.collapsed {
-    height: 15px;
-    overflow: hidden;
-}
-
-#header.collapsed .content {
-    display: none;
-}
-
-#header .come-back {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
     width: 100%;
-    font-size: 12px;
-    display: none;
-}
-
-#header.collapsed .come-back {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    /*overflow: hidden;*/
 }
 
 /* f4ke 4chan wraparound */
 
 #f4ke {
+    position: relative;
     padding: 10px;
-    padding-top: 30px;
+    padding-top: 0px;
     width: 100%;
     color: #800000;
     font-family: arial,helvetica,sans-serif;
@@ -67,4 +87,39 @@ ul.sortable .op {
     background-color: none !important;
     border: none !important;
     border-color: none !important;
+}
+
+/* Pretty buttons! */
+
+.button, button, input[type="submit"] {
+    padding: 2px;
+    background: #4479BA;
+    color: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.button, button:hover, input[type="submit"]:hover {
+    background: #356094;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+.button, button:active, input[type="submit"]:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #2E5481;
+    border: solid 1px #203E5F;
 }
