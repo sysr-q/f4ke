@@ -43,13 +43,14 @@
             </p>
         </div>
         <div id="edit-buttons">
-            <b>EDITING:</b>
-            <button id="edit-enable" class="width-50">YES</button> &ndash;
-            <button id="edit-disable" class="width-50">NO</button>
+            <button id="edit-toggle" class="button green width-75">Edit</button>
+            <button id="edit-move" class="button green width-75">Move</button>
+            <button id="edit-new-post" class="button cyan width-75"><b>+</b> post</button>
+            <button id="edit-reset-posts" class="button orange width-75">Reset</button>
         </div>
     </section>
     <section id="f4ke">
-        <ul class="sortable posts">
+        <ul id="f4ke-posts" class="sortable posts">
             <li class="disabled op">
                 <div class="postContainer opContainer">
                 <div class="post op">
@@ -85,7 +86,10 @@
 
             <li>
                 <div class="postContainer">
-                <div class="sideArrows">&gt;&gt;</div>
+                <div class="sideArrows">
+                    &gt;&gt;<br>
+                    <span class="button red delete-btn">&#10006;</span>
+                </div>
                 <div class="post">
                     <div class="postInfo">
                         <input type="checkbox" value="delete" />
@@ -104,6 +108,16 @@
                             <span>XXXXXXXXX</span>
                         </span><!-- .postNum -->
                     </div><!-- .postInfo -->
+                    <div class="file">
+                        <div class="fileInfo">
+                            <span class="fileText">
+                                File: <a href="#" class="editable">XXXXXXXXXX.png</a>-(XXX KB, HxW, ImageName.png)
+                            </span>
+                        </div>
+                        <a class="fileThumb">
+                            <img src="http://js.dongcorp.org/dongcorp.png" />
+                        </a>
+                    </div>
                     <blockquote class="postMessage">
                         THIS IS A TEST, YO.<br>
                         <span class="quote">&gt;implying</span>

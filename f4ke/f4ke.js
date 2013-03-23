@@ -1,4 +1,28 @@
+function new_post(is_op) {
+    is_op = is_op || false;
+    var $made_post = $('<li />');
+    var $container = $('<div class="postContainer" />'),
+        $post = $('<div class="post" />');
+    if (is_op) {
+        $made_post.addClass('disabled op');
+        $container.addClass('opContainer');
+        $post.addClass('op');
+    }
+    $made_post.append($container);
+    $container.append($post);
+    return $made_post;
+}
+
 $(function () {
+    if(supportsLocalStorage()) {
+        if ('is_visible' in localStorage) {
+            var visible = (localStorage['is_visible'] == "true");
+            $('#header .content').toggle(visible);
+        }
+    }
+
+    $('.delete-btn').toggle();
+
     /**
      * Replaces HTML with human readable values,
      * making it easier for the user to edit.
@@ -50,28 +74,63 @@ $(function () {
         name: "editable_text",
     });
 
-    $('.editable').editable('disable');
-
-    // For le debugging.
-    $('.sortable li:last-child').clone().appendTo($('.sortable'));
     $('.sortable').sortable({
-        items: ':not(.disabled)',
+        items: ':not(.fileThumb):not(.disabled)',
         forcePlaceholderSize: true
     });
 
-    $('#edit-enable').click(edit_enable);
-    $('#edit-disable').click(edit_disable);
-    $('#header').click(function () {
-        /** /
-        var new_height = (-$(this).height() + ($('#edit-enable').height() + 14));
-        var tp = $(this).css('top') == '0px' ? new_height + 'px' : '0px';
-        $(this).animate({top:tp}, 1000, function () {
-            $(this).toggleClass('collapsed');
-        });
-        /**/
-        $('#header .content').slideToggle();
+    $('.editable').editable('disable');
+    $('.sortable').sortable('disable');
+
+    // Blanket catch all edit buttons so they won't expand the header.
+    $('#edit-buttons button').click(function () { return false; });
+
+    $('#edit-toggle').click(function () {
+        if ($(this).hasClass('green')) {
+            $(this).toggleClass('green').toggleClass('red');
+            edit_enable();
+        } else {
+            $(this).toggleClass('red').toggleClass('green');
+            edit_disable();
+        }
+        return false;
     });
+
+    $('#edit-move').click(function() {
+        $('.delete-btn').toggle();
+        if ($(this).hasClass('green')) {
+            $(this).toggleClass('green').toggleClass('red');
+            $('.sortable').sortable('enable');
+        } else {
+            $(this).toggleClass('red').toggleClass('green');
+            $('.sortable').sortable('disable');
+        }
+    });
+
+    $('#edit-new-post').click(function () {
+        $('#f4ke-posts').append(new_post());
+    });
+
+    $('#header').click(function () {
+        $('#header .content').slideToggle(function () {
+            if (supportsLocalStorage()) {
+                var visible = $('#header .content').is(':visible');
+                localStorage['is_visible'] = visible;
+            }
+        });
+    });
+
+    //$('#trash-can').sortable();
 });
+
+/* No point in including Modernizr for this alone. */
+function supportsLocalStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
 
 function edit_disable() {
     $('.editable').editable('disable');
